@@ -1,22 +1,22 @@
-# DS551/CS525 Project 4 [Group (3-5 people)]
+# DS551/CS551 Project 4 [Group (3-5 people)]
 
 #### Important Dates
 * Project Start
-  * **Week 10, Tuesday Oct 29, 2024**
+  * **Week 10, Tuesday Oct 28, 2025**
 * Project Proposal Due (Upload to Canvas)
-  * **Week 11, Tuesday Nov 5, 2024 (23:59)**
+  * **Week 11, Tuesday Nov 4, 2025 (23:59)**
   * *About 2 pages*
 * Project Progress Report Due
-  * **Week 14, Tuesday Nov 26, 2024 (23:59)**
+  * **Week 14, Tuesday Nov 25, 2025 (23:59)**
   * *About 5 pages*
 * Final Project Report Due
-  * **Week 16 Monday Dec 9, 2024 (23:59)**
+  * **Week 16 Monday Dec 8, 2025 (23:59)**
   * *About 10 pages*
   * *Code and trained model*
   * *Demo (Optional)*
   * *Self-and-cross evaluation form*
 * Presentation Session (In person)
-  * **Week 16 Tuesday Dec 10, 2024**
+  * **Week 16 Tuesday Dec 9, 2025**
 
 #### Total Points
 * 100 (One Hundred)
