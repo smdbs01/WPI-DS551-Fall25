@@ -1,11 +1,11 @@
-# DS551/CS525 Individual Project 2
+# DS551/CS551 Individual Project 2
 # Model-free Algorithms (Monte-Carlo and Temporal Difference)
 
 #### Starting Date
-* Week 5 Tuesday September 24, 2024 (23:59)
+* Week 5 Tuesday September 23, 2025 (23:59)
 
 #### Due Date
-* Week 7 Tuesday Oct 8, 2024 (23:59)
+* Week 7 Tuesday Oct 7, 2025 (23:59)
 
 #### Total Points
 * 100 (One Hundred)
