@@ -1,4 +1,4 @@
-# DS551/CS551/CS525 Inidividual Project 3
+# DS551/CS551 Inidividual Project 3
 # Deep Q-learning Network(DQN)
 Please don't revise test.py, environment.py, atari_wrapper.py, main.py, and agent.py
 
@@ -7,11 +7,10 @@ You work on the following files, including agent_dqn.py and dqn_model.py.
 You can optionally update argument.py to add your own arguments (if needed).
 
 #### Starating Date
-* Week 7, Tuesday Oct 8, 2024 (23:59)
+* Week 7, Tuesday Oct 7, 2025 (23:59)
 
 #### Due Date
-* Updated to Week 12, Tuesday Nov 12, 2024 (23:59))
-* (It was Week 10, Tuesday Oct 29, 2024 (23:59)))
+* Week 10, Tuesday Oct 28, 2025 (23:59)
 
 #### Total Points
 * 100 (One Hundred)
