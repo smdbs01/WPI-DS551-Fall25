@@ -55,7 +55,7 @@ class SumTree:
 class PrioritizedExperienceReplayBuffer:
     def __init__(
         self,
-        capacity,
+        capacity: int,
         alpha=0.6,
         beta=0.4,
         beta_increment=0.001,
@@ -91,6 +91,10 @@ class PrioritizedExperienceReplayBuffer:
             b = segment * (i + 1)
             s = random.uniform(a, b)
             idx, p, data = self.tree.get(s)
+            while data is None:
+                s = random.uniform(a, b)
+                idx, p, data = self.tree.get(s)
+
             priorities.append(p)
             batch.append(data)
             idxs.append(idx)

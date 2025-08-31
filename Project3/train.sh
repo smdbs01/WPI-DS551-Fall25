@@ -2,15 +2,17 @@
 
 #SBATCH -J dqn_training
 #SBATCH -N 1
-#SBATCH -n 2
-#SBATCH --mem=16g
+#SBATCH -n 4
+#SBATCH --mem=64g
 #SBATCH -p short
 #SBATCH -t 12:00:00
 #SBATCH --gres=gpu:1
+#SBATCH --output logs/dqn_training-%j.out  
+#SBATCH --error logs/dqn_training-%j.err  
 
-# module load cuda
+module load cuda
 
-cd "$(dirname "$0")"
+cd /home/bhu3/projects/WPI-DS551-Fall25/Project3
 
 mode=train_dqn
 

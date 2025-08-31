@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import random
+import sys
 from typing import Any, Optional
 import numpy as np
 
@@ -151,7 +152,10 @@ class Agent_DQN(Agent):
         # YOUR IMPLEMENTATION HERE #
         experience = (s, a, r, next_s, done)
         self.buffer.add(
-            torch.Tensor([self.buffer.max_priority], device=self.device), experience
+            torch.tensor(
+                self.buffer.max_priority, dtype=torch.float32, device=self.device
+            ),
+            experience,
         )
         ###########################
 
@@ -208,6 +212,8 @@ class Agent_DQN(Agent):
             return None
 
         batch, indices, is_weights = batch_data
+        if batch is None or len(batch) == 0:
+            return None
 
         states, actions, rewards, next_states, dones = self._preprocess_batch(batch)
 
@@ -299,6 +305,8 @@ class Agent_DQN(Agent):
                 self.state = self.env.reset()
                 self.current_episode_reward = 0
                 episode += 1
+
+            sys.stdout.flush()
 
         torch.save(self.q.state_dict(), "models/dqn_final_model.pth")
         print("Final model saved.")
