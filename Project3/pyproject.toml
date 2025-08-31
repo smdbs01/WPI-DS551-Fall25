@@ -1,0 +1,16 @@
+[project]
+name = "project3"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "autorom[accept-rom-license]>=0.6.1",
+  "gymnasium[atari]==0.28.1",
+  "ipywidgets>=8.1.7",
+  "opencv-python-headless>=4.12.0.88",
+  "ray[rllib]>=2.38.0",
+  "torch>=2.8.0",
+  "torchvision>=0.23.0",
+  "tqdm>=4.67.1",
+]
