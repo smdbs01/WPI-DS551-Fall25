@@ -47,4 +47,11 @@ def add_arguments(parser):
         "--eps_decay", type=int, default=1000000, help="epsilon decay steps"
     )
 
+    parser.add_argument(
+        "--model_name",
+        type=str,
+        default="dqn",
+        help="name of the model, used for saving and loading",
+    )
+
     return parser

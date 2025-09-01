@@ -3,7 +3,7 @@
 #SBATCH -J dqn_training
 #SBATCH -N 1
 #SBATCH -n 4
-#SBATCH --mem=64g
+#SBATCH --mem=128g
 #SBATCH -p short
 #SBATCH -t 12:00:00
 #SBATCH --gres=gpu:1
@@ -16,10 +16,10 @@ cd /home/bhu3/projects/WPI-DS551-Fall25/Project3
 
 mode=train_dqn
 
-total_frames=5000000
+total_frames=10000000
 batch_size=32
 train_freq=4
-replay_buffer_size=1000000
+replay_buffer_size=500000
 replay_start_size=50000
 
 target_update_freq=10000
@@ -27,8 +27,10 @@ target_update_freq=10000
 gamma=0.99
 
 eps_start=1.0
-eps_end=0.1
+eps_end=0.01
 eps_decay=1000000
+
+model_name=ddqn
 
 uv run main.py --$mode \
   --total_frames $total_frames \
@@ -40,4 +42,5 @@ uv run main.py --$mode \
   --gamma $gamma \
   --eps_start $eps_start \
   --eps_end $eps_end \
-  --eps_decay $eps_decay
+  --eps_decay $eps_decay \
+  --model_name $model_name

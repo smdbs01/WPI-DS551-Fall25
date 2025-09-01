@@ -40,6 +40,8 @@ class Agent_DQN(Agent):
         super(Agent_DQN, self).__init__(env)
         ###########################
         # YOUR IMPLEMENTATION HERE #
+        self.model_name = args.model_name
+
         self.total_frames = args.total_frames
 
         self.batch_size = args.batch_size
@@ -80,8 +82,10 @@ class Agent_DQN(Agent):
             ###########################
             # YOUR IMPLEMENTATION HERE #
             try:
-                self.q.load_state_dict(torch.load("models/dqn_model.pth"))
-                self.target_q.load_state_dict(torch.load("models/dqn_model.pth"))
+                self.q.load_state_dict(torch.load(f"models/{self.model_name}.pth"))
+                self.target_q.load_state_dict(
+                    torch.load(f"models/{self.model_name}.pth")
+                )
             except Exception as e:
                 print("Failed to load model:", e)
 
@@ -199,7 +203,12 @@ class Agent_DQN(Agent):
         current_q_values = self.q(states).gather(1, actions.unsqueeze(1)).squeeze(1)
 
         with torch.no_grad():
-            next_q_values = self.target_q(next_states).max(1)[0]
+            next_actions = self.q(next_states).max(1)[1]
+            next_q_values = (
+                self.target_q(next_states)
+                .gather(1, next_actions.unsqueeze(1))
+                .squeeze(1)
+            )
             target_q_values = rewards + (1 - dones) * self.gamma * next_q_values
 
         td_errors = (current_q_values - target_q_values).abs()
@@ -297,7 +306,7 @@ class Agent_DQN(Agent):
 
                     if mean_reward > best_mean_reward:
                         best_mean_reward = mean_reward
-                        torch.save(self.q.state_dict(), "models/dqn_model.pth")
+                        torch.save(self.q.state_dict(), f"models/{self.model_name}.pth")
                         print(
                             f"New best mean reward: {best_mean_reward:.2f}. Model saved."
                         )
@@ -308,7 +317,7 @@ class Agent_DQN(Agent):
 
             sys.stdout.flush()
 
-        torch.save(self.q.state_dict(), "models/dqn_final_model.pth")
+        torch.save(self.q.state_dict(), f"models/{self.model_name}_final_model.pth")
         print("Final model saved.")
 
         ###########################
